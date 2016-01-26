@@ -667,7 +667,7 @@ public class SessionImpl implements Session {
 
                     case TLV.SYMKEY:
                         getHost().symmetricKeyReceived(
-                                matchingKeys.getExtraSymmetricKey(), tlv.getValue());
+                                getSessionID(), matchingKeys.getExtraSymmetricKey(), tlv.getValue());
                         return null;
 
 					default:

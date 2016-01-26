@@ -305,7 +305,7 @@ public class DummyClient {
 		}
 
 		@Override
-		public void symmetricKeyReceived(byte[] symKey, byte[] content) {
+		public void symmetricKeyReceived(SessionID sessionID, byte[] symKey, byte[] content) {
 		}
 
 		public String getFallbackMessage() {

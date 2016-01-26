@@ -89,5 +89,5 @@ public abstract interface OtrEngineHost {
 
 	public abstract void multipleInstancesDetected(SessionID sessionID);
 
-	public abstract void symmetricKeyReceived(byte[] symKey, byte[] content);
+	public abstract void symmetricKeyReceived(SessionID sessionID, byte[] symKey, byte[] content);
 }
