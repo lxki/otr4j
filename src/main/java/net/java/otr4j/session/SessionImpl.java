@@ -621,6 +621,9 @@ public class SessionImpl implements Session {
 
 			logger.finest("Decrypted message: \"" + decryptedMsgContent + "\"");
 
+			// Calculate extra symmetric key.
+            byte[] symKey = matchingKeys.getExtraSymmetricKey();
+
 			// Rotate keys if necessary.
 			SessionKeys mostRecent = this.getMostRecentSessionKeys();
 			if (mostRecent.getLocalKeyID() == receipientKeyID)
@@ -666,8 +669,7 @@ public class SessionImpl implements Session {
 						return null;
 
                     case TLV.SYMKEY:
-                        getHost().symmetricKeyReceived(
-                                getSessionID(), matchingKeys.getExtraSymmetricKey(), tlv.getValue());
+                        getHost().symmetricKeyReceived(getSessionID(), symKey, tlv.getValue());
                         return null;
 
 					default:
