@@ -670,7 +670,7 @@ public class SessionImpl implements Session {
 
                     case TLV.SYMKEY:
                         getHost().symmetricKeyReceived(getSessionID(), symKey, tlv.getValue());
-                        return null;
+                        break;
 
 					default:
 						if (otrSm.doProcessTlv(tlv))
